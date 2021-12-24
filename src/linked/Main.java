@@ -15,14 +15,36 @@ public class Main {
 //
 //        System.out.println(" null");
 
-        Singly<Integer> primes = new Singly<>();
-        primes.insertAtFront(2);
-        primes.insertAtFront(3);
-        primes.insertAtFront(5);
+//        Singly<Integer> primes = new Singly<>();
+//        primes.insertAtFront(2);
+//        primes.insertAtFront(3);
+//        primes.insertAtFront(5);
+//        primes.display();
+//
+//        primes.insertAtIndex(1, -2);
+//        primes.display();
+//
+//        primes.insertAtIndex(primes.getSize(), 7);
+//        primes.display();
+//
+//        System.out.println("CURRENT NODE NUMBER:\t " + primes.getSize());
 
-        primes.display();
+        // testing insertion at any index
+//
 
+        Singly<Integer> even = new Singly<>();
 
+        for (int i = 0; i < 10; i++){
+            even.insertAtEnd(i*2);
+        }
 
+        even.display();
+        System.out.println(even.getSize());
+
+        even.insertAtIndex(3,-300);
+        even.display();
+
+        even.insertAtIndex(3,-3000);
+        even.display();
     }
 }

@@ -22,11 +22,12 @@ public class Singly<T> {
     }
 
     // increment and decrement the size
-    public void increment(){
+    // no one should access this out of this class
+    private void increment(){
         this.size++;
     }
 
-    public void decrement(){
+    private void decrement(){
         this.size--;
     }
 
@@ -59,6 +60,70 @@ public class Singly<T> {
 
     }
 
+    public void insertAtEnd(T data){
+        Node<T> new_node = new Node<>(data, null);
+
+        if(isEmpty()){
+            head = new_node;
+        }
+
+        else{
+            tail.setNext(new_node);
+        }
+
+        tail = new_node;
+        increment();
+    }
+
+    // add at an index
+    public void insertAtIndex(int index, T data){
+        if(index < 1 || index > getSize()){
+            throw new IllegalArgumentException("No such index");
+        }
+
+        // add at the front
+        else if(index == 1){
+            insertAtFront(data);
+        }
+
+        // add at the end
+        else if(index == getSize()){
+            insertAtEnd(data);
+        }
+
+        //
+        else{
+            Node<T> previous = this.head;
+            int tracker = 1;
+            while(tracker < index-1){
+                previous = previous.getNext();
+                tracker++;
+            }
+            Node<T> current = previous.getNext();
+            Node<T> new_node = new Node<>(data, current);
+            previous.setNext(new_node);
+            increment();
+        }
+    }
+
+    // remove from front
+    public T removeFromFront(){
+        if(isEmpty()){
+            return null;
+        }
+
+        else{
+            T obtained = this.head.getData();
+            this.head = this.head.getNext();
+            decrement();
+            if (isEmpty()){
+                this.tail = null;
+            }
+
+            return obtained;
+        }
+    }
+
     // display
     public void display(){
         Node<T> temp = this.head;
@@ -66,6 +131,8 @@ public class Singly<T> {
             System.out.print(temp.getData() + " --> ");
             temp = temp.getNext();
         }
+
+        System.out.println();
     }
 
 }
