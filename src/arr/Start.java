@@ -8,8 +8,12 @@ public class Start {
         Helper some = new Helper(15);
         some.addIt();
         some.display();
-        System.out.println(Arrays.toString(some.removeEven()));
 
-        System.out.println(Arrays.toString(some.removeOdd()));
+        //System.out.println(Arrays.toString(some.removeEven()));
+
+        //System.out.println(Arrays.toString(some.removeOdd()));
+
+        some.reverseMe(0,some.arrayed.length-1);
+        some.display();
     }
 }

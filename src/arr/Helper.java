@@ -74,6 +74,18 @@ public class Helper {
         return noOdds;
     }
 
+    // reverse it from an index to another
+    public void reverseMe(int start, int end){
+        while(start < end - 1){
+            int temp = this.arrayed[end];
+            this.arrayed[end] = this.arrayed[start];
+            this.arrayed[start] = temp;
+            start++;
+            end--;
+        }
+
+
+    }
     public void display(){
         System.out.println(Arrays.toString(this.arrayed));
     }
