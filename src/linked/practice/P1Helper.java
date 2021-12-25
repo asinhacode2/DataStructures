@@ -2,12 +2,15 @@ package linked.practice;
 
 // keeping things really separate
 public class P1Helper {
+    P1Singly<Integer> simpleList;
+
     public P1Helper(){
 
     }
 
-    public static void generateXOddNodes(int size){
-        P1Singly<Integer> odds = new P1Singly<>();
+    // create a linked list of odd valued nodes
+    public  void generateXOddNodes(int size){
+       this.simpleList = new P1Singly<>();
         P1Random data = new P1Random();
 
         for (int i = 0; i < size; i++){
@@ -15,31 +18,31 @@ public class P1Helper {
             int actualData = data.generateRandom();
 
             if (actualData % 2 != 0)
-                odds.addFirst(actualData);
+                simpleList.addFirst(actualData);
 
             else
-                odds.addFirst(actualData + 1);
+                simpleList.addFirst(actualData + 1);
         }
-        odds.display();
+        simpleList.display();
     }
 
     // depending on 0 or 1 add at first or last
-    public static void addFirstOrLast(int size){
-        P1Singly<Integer> linedUp = new P1Singly<>();
+    public void addFirstOrLast(int size){
+        this.simpleList = new P1Singly<>();
 
         for (int i = 0; i < size; i++){
             if(new P1Random().binary() == 0){
-                linedUp.addFirst(new P1Random().generateRandom());
+                this.simpleList.addFirst(new P1Random().generateRandom());
             }
 
             else
             {
-                linedUp.addLast(-1 * new P1Random().generateRandom());
+                this.simpleList.addLast(-1 * new P1Random().generateRandom());
 
             }
         }
 
-        linedUp.display();
+        this.simpleList.display();
     }
 
 }

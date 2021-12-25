@@ -65,6 +65,35 @@ public class P1Singly<E> {
         this.increment();
     }
 
+    public void addAtPosition(int position, E data){
+        if(position < 0 || position > this.getSize()) {
+            String message = "Not a valid position, please have the number between 0 and " +
+                    this.getSize();
+            throw new IllegalArgumentException(message);
+        }
+
+        if (position == 0)
+            this.addFirst(data);
+
+        else if(position == this.getSize())
+            this.addLast(data);
+
+        else{
+            int start = 1;
+            P1Node<E> temp = this.head;
+
+            while(start < position - 1){
+                temp = temp.getNext();
+                start++;
+            }
+
+            P1Node<E> tempNext = temp.getNext();
+            P1Node<E> newNode = new P1Node<>(data, tempNext);
+            temp.setNext(newNode);
+        }
+
+    }
+
     public E removeFirst(){
         if (isEmpty())
             return null;

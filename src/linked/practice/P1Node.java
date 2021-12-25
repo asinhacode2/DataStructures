@@ -10,6 +10,7 @@ public class P1Node<E> {
         this.next = next;
     }
 
+    // getters and setters
     public E getData() {
         return data;
     }
