@@ -1,4 +1,4 @@
-package linked;
+package linked.practice;
 
 public class P1Node<E> {
 

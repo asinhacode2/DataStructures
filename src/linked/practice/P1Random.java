@@ -1,7 +1,7 @@
-package linked;
+package linked.practice;
 
-public class P1Helper {
-    public P1Helper(){
+public class P1Random {
+    public P1Random(){
 
     }
 

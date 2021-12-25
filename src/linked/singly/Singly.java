@@ -1,4 +1,4 @@
-package linked;
+package linked.singly;
 
 public class Singly<T> {
 

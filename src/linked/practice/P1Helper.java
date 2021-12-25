@@ -1,16 +1,14 @@
-package linked;
+package linked.practice;
 
-public class P1Main {
+// keeping things really separate
+public class P1Helper {
+    public P1Helper(){
 
-    public static void main(String[] args) {
-
-        generateXOddNodes(15);
-        addFirstOrLast(15);
     }
 
     public static void generateXOddNodes(int size){
         P1Singly<Integer> odds = new P1Singly<>();
-        P1Helper data = new P1Helper();
+        P1Random data = new P1Random();
 
         for (int i = 0; i < size; i++){
             // design patterns
@@ -30,13 +28,13 @@ public class P1Main {
         P1Singly<Integer> linedUp = new P1Singly<>();
 
         for (int i = 0; i < size; i++){
-            if(new P1Helper().binary() == 0){
-                linedUp.addFirst(new P1Helper().generateRandom());
+            if(new P1Random().binary() == 0){
+                linedUp.addFirst(new P1Random().generateRandom());
             }
 
             else
             {
-                linedUp.addLast(-1 * new P1Helper().generateRandom());
+                linedUp.addLast(-1 * new P1Random().generateRandom());
 
             }
         }
