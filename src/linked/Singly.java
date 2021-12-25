@@ -124,6 +124,28 @@ public class Singly<T> {
         }
     }
 
+    // remove the last
+    public T removeLast(){
+        if (isEmpty())
+            return null;
+
+        else{
+            Node<T> current = head;
+            Node<T> prev = null;
+
+            // while the next of current exists, keep moving
+
+            while(current.getNext() != null){
+                prev = current;
+                current = current.getNext();
+            }
+
+            prev.setNext(null);
+            return current.getData();
+
+        }
+    }
+
     // display
     public void display(){
         Node<T> temp = this.head;

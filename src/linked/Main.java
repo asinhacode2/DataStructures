@@ -46,5 +46,14 @@ public class Main {
 
         even.insertAtIndex(3,-3000);
         even.display();
+
+        System.out.println(even.removeFromFront());
+        System.out.println(even.removeFromFront());
+
+        System.out.println(even.removeLast());
+        even.display();
+
+
+
     }
 }
