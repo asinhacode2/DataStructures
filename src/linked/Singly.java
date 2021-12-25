@@ -146,6 +146,36 @@ public class Singly<T> {
         }
     }
 
+    // remove at a given index
+    public T removeAtIndex(int target){
+        if (isEmpty())
+            return null;
+
+        if (target == 1)
+        {
+            return removeFromFront();
+        }
+
+        else if(target == getSize()){
+            return removeLast();
+        }
+
+        else{
+            Node<T> prev = this.head;
+            int count = 1;
+
+            while(count < target - 1){
+                prev = prev.getNext();
+                count++;
+            }
+
+            Node<T> current = prev.getNext();
+            T data = current.getData();
+            prev.setNext(current.getNext());
+            return data;
+        }
+    }
+
     // display
     public void display(){
         Node<T> temp = this.head;
