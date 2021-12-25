@@ -64,6 +64,8 @@ public class Main {
         }
 
         randoms.display();
+        randoms.reverse();
+        randoms.display();
 
     }
 }

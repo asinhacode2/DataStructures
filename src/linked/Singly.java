@@ -188,6 +188,23 @@ public class Singly<T> {
         }
     }
 
+    public Node<T> reverse(){
+        Node<T> current = this.head;
+        Node<T> previous = null;
+        Node<T> next = null;
+
+        while(current != null)
+        {
+            next = current.getNext();
+            current.setNext(previous);
+            previous = current;
+            current = next;
+        }
+
+        return previous;
+
+    }
+
     // display
     public void display() {
         Node<T> temp = this.head;
