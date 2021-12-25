@@ -15,5 +15,7 @@ public class Start {
 
         some.reverseMe(0,some.arrayed.length-1);
         some.display();
+
+        System.out.println(some.findMaximum());
     }
 }

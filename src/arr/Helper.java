@@ -86,6 +86,25 @@ public class Helper {
 
 
     }
+
+    public int findMinimum(){
+        int min = this.arrayed[0];
+        for (int i = 1; i < this.arrayed.length; i++)
+            min = (int)Math.min(min, this.arrayed[i]);
+
+        return min;
+    }
+
+    public int findMaximum(){
+        int max = this.arrayed[0];
+        for (int i = 1; i < this.arrayed.length; i++)
+            max = (int)Math.max(max, this.arrayed[i]);
+
+        return max;
+    }
+
+
+
     public void display(){
         System.out.println(Arrays.toString(this.arrayed));
     }
