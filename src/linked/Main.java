@@ -32,28 +32,38 @@ public class Main {
         // testing insertion at any index
 //
 
-        Singly<Integer> even = new Singly<>();
+//        Singly<Integer> even = new Singly<>();
+//
+//        for (int i = 0; i < 10; i++){
+//            even.insertAtEnd(i*2);
+//        }
+//
+//        even.display();
+//        System.out.println(even.getSize());
+//
+//        even.insertAtIndex(3,-300);
+//        even.display();
+//
+//        even.insertAtIndex(3,-3000);
+//        even.display();
+//
+//        System.out.println(even.removeFromFront());
+//        System.out.println(even.removeFromFront());
+//
+//        System.out.println(even.removeLast());
+//        even.display();
+//
+//        System.out.println(even.removeAtIndex(5));
+//        even.display();
+//
 
-        for (int i = 0; i < 10; i++){
-            even.insertAtEnd(i*2);
+        Singly<Integer> randoms = new Singly<>();
+        for (int i = 0; i < 5; i++)
+        {
+            randoms.insertAtEnd((int)(Math.random() * 100));
         }
 
-        even.display();
-        System.out.println(even.getSize());
-
-        even.insertAtIndex(3,-300);
-        even.display();
-
-        even.insertAtIndex(3,-3000);
-        even.display();
-
-        System.out.println(even.removeFromFront());
-        System.out.println(even.removeFromFront());
-
-        System.out.println(even.removeLast());
-        even.display();
-
-
+        randoms.display();
 
     }
 }

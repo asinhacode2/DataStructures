@@ -8,32 +8,32 @@ public class Singly<T> {
     private int size = 0;
 
     // constructor
-    public Singly(){
+    public Singly() {
 
     }
 
     // get size
-    public int getSize(){
+    public int getSize() {
         return this.size;
     }
 
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return this.size == 0;
     }
 
     // increment and decrement the size
     // no one should access this out of this class
-    private void increment(){
+    private void increment() {
         this.size++;
     }
 
-    private void decrement(){
+    private void decrement() {
         this.size--;
     }
 
     // return the first
-    public T getFirst(){
-        if(isEmpty()){
+    public T getFirst() {
+        if (isEmpty()) {
             return null;
         }
 
@@ -41,8 +41,8 @@ public class Singly<T> {
     }
 
     // return the last
-    public T getLast(){
-        if(isEmpty()){
+    public T getLast() {
+        if (isEmpty()) {
             return null;
         }
 
@@ -50,24 +50,22 @@ public class Singly<T> {
     }
 
     // insert at the front
-    public void insertAtFront(T data){
+    public void insertAtFront(T data) {
         this.head = new Node<>(data, head);
 
-        if (isEmpty()){
+        if (isEmpty()) {
             tail = head;
         }
         increment();
 
     }
 
-    public void insertAtEnd(T data){
+    public void insertAtEnd(T data) {
         Node<T> new_node = new Node<>(data, null);
 
-        if(isEmpty()){
+        if (isEmpty()) {
             head = new_node;
-        }
-
-        else{
+        } else {
             tail.setNext(new_node);
         }
 
@@ -76,26 +74,26 @@ public class Singly<T> {
     }
 
     // add at an index
-    public void insertAtIndex(int index, T data){
-        if(index < 1 || index > getSize()){
+    public void insertAtIndex(int index, T data) {
+        if (index < 1 || index > getSize()) {
             throw new IllegalArgumentException("No such index");
         }
 
         // add at the front
-        else if(index == 1){
+        else if (index == 1) {
             insertAtFront(data);
         }
 
         // add at the end
-        else if(index == getSize()){
+        else if (index == getSize()) {
             insertAtEnd(data);
         }
 
         //
-        else{
+        else {
             Node<T> previous = this.head;
             int tracker = 1;
-            while(tracker < index-1){
+            while (tracker < index - 1) {
                 previous = previous.getNext();
                 tracker++;
             }
@@ -107,16 +105,14 @@ public class Singly<T> {
     }
 
     // remove from front
-    public T removeFromFront(){
-        if(isEmpty()){
+    public T removeFromFront() {
+        if (isEmpty()) {
             return null;
-        }
-
-        else{
+        } else {
             T obtained = this.head.getData();
             this.head = this.head.getNext();
             decrement();
-            if (isEmpty()){
+            if (isEmpty()) {
                 this.tail = null;
             }
 
@@ -125,17 +121,17 @@ public class Singly<T> {
     }
 
     // remove the last
-    public T removeLast(){
+    public T removeLast() {
         if (isEmpty())
             return null;
 
-        else{
+        else {
             Node<T> current = head;
             Node<T> prev = null;
 
             // while the next of current exists, keep moving
 
-            while(current.getNext() != null){
+            while (current.getNext() != null) {
                 prev = current;
                 current = current.getNext();
             }
@@ -147,24 +143,19 @@ public class Singly<T> {
     }
 
     // remove at a given index
-    public T removeAtIndex(int target){
+    public T removeAtIndex(int target) {
         if (isEmpty())
             return null;
 
-        if (target == 1)
-        {
+        if (target == 1) {
             return removeFromFront();
-        }
-
-        else if(target == getSize()){
+        } else if (target == getSize()) {
             return removeLast();
-        }
-
-        else{
+        } else {
             Node<T> prev = this.head;
             int count = 1;
 
-            while(count < target - 1){
+            while (count < target - 1) {
                 prev = prev.getNext();
                 count++;
             }
@@ -174,12 +165,33 @@ public class Singly<T> {
             prev.setNext(current.getNext());
             return data;
         }
+
+
+    }
+
+    // search
+    // linear search - O(n)
+    public boolean search(T target) {
+        if (isEmpty())
+            return false;
+        else {
+            Node<T> temp = this.head;
+            while (temp != null) {
+                if (temp.getData() == target) {
+                    return true;
+                }
+                temp = temp.getNext();
+            }
+
+            return false;
+
+        }
     }
 
     // display
-    public void display(){
+    public void display() {
         Node<T> temp = this.head;
-        while(temp != null){
+        while (temp != null) {
             System.out.print(temp.getData() + " --> ");
             temp = temp.getNext();
         }
