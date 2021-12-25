@@ -50,6 +50,30 @@ public class Helper {
         return evenRemoved;
     }
 
+    // remove all odds
+    public Integer[] removeOdd(){
+        int even = 0;
+
+        // determine how many evens you have
+        for (int i = 0; i < this.arrayed.length; i++){
+            if (this.arrayed[i] % 2 == 0){
+                even++;
+            }
+        }
+
+        Integer[] noOdds = new Integer[even];
+        int index = 0;
+
+        // add those
+        for (int i = 0; i < this.arrayed.length; i++){
+            if(this.arrayed[i] % 2 == 0){
+                noOdds[index++] = this.arrayed[i];
+            }
+        }
+
+        return noOdds;
+    }
+
     public void display(){
         System.out.println(Arrays.toString(this.arrayed));
     }
