@@ -9,8 +9,28 @@ public class P1Main {
         //help.generateXOddNodes(15);
 
         help.addFirstOrLast(15);
-        help.simpleList.addAtPosition(5, -10000);
+//        help.simpleList.addAtPosition(5, -10000);
+//        help.simpleList.display();
+//
+//        help.simpleList.removeFirst();
+//        help.simpleList.removeFirst();
+//        help.simpleList.removeFirst();
+//        help.simpleList.removeFirst();
+//        help.simpleList.display();
+
+
+        help.simpleList.removeFirst();
+        help.simpleList.removeFirst();
+        help.simpleList.removeFirst();
+
+        help.simpleList.removeLast();
+        help.simpleList.removeLast();
+        help.simpleList.removeLast();
+
+        System.out.println(help.simpleList.getLast());
+
         help.simpleList.display();
+
 
     }
 

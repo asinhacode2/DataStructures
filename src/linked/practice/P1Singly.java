@@ -94,6 +94,7 @@ public class P1Singly<E> {
 
     }
 
+    // from the front
     public E removeFirst(){
         if (isEmpty())
             return null;
@@ -107,6 +108,27 @@ public class P1Singly<E> {
             this.tail = null;
 
         return data;
+    }
+
+    // remove from the end
+    public E removeLast(){
+
+        if (isEmpty())
+            return null;
+
+        else{
+           P1Node<E> current = head;
+           P1Node<E> prev = null;
+
+           while(current.getNext() != null){
+               prev = current;
+               current = current.getNext();
+           }
+
+           prev.setNext(null);
+           this.tail = prev;
+           return current.getData();
+        }
     }
 
     public void display(){
