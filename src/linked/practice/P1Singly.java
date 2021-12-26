@@ -131,6 +131,39 @@ public class P1Singly<E> {
         }
     }
 
+    public E deleteFromPosition(int position){
+        if (isEmpty())
+            return null;
+
+        else if(position < 1 || position > this.getSize()){
+            throw new IllegalArgumentException("No such position!");
+        }
+
+        else if(position == 1){
+            return removeFirst();
+        }
+
+        else if(position == getSize()){
+            return removeLast();
+        }
+
+        else{
+            int tracker = 1;
+            P1Node<E> temp = this.head;
+
+            while(tracker < position - 1){
+                temp = temp.getNext();
+                tracker++;
+            }
+
+            P1Node<E> toBeRemoved = temp.getNext();
+            temp.setNext(toBeRemoved.getNext());
+            this.decrement();
+
+            return toBeRemoved.getData();
+        }
+    }
+
     public void display(){
         P1Node<E> temp = this.head;
 
